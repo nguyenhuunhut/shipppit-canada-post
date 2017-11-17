@@ -91,7 +91,7 @@ module CanadaPost
       end
 
       def add_expected_mail_date(xml)
-        xml.send(:"expected-mailing-date", "2017-11-30")
+        xml.send(:"expected-mailing-date", @expected_mailing_date)
       end
 
       def add_destination(xml)
