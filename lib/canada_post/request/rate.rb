@@ -7,7 +7,7 @@ module CanadaPost
       def initialize(credentials, options={})
         requires!(options, :shipper, :recipient, :package)
         @credentials = credentials
-        @shipper, @recipient, @package, @service_type = options[:shipper], options[:recipient], options[:package], options[:service_type]
+        @shipper, @recipient, @package, @service_type, @expected_mailing_date = options[:shipper], options[:recipient], options[:package], options[:service_type], options[:expected_mailing_date]
         super(credentials)
       end
 
@@ -61,6 +61,7 @@ module CanadaPost
         add_services(xml)
         add_shipper(xml)
         add_recipient(xml)
+        add_expected_mail_date(xml)
       end
 
       def add_shipper(xml)
@@ -87,6 +88,10 @@ module CanadaPost
             xml.send(:"mailing-tube", @package[:cylinder])
           end
         }
+      end
+
+      def add_expected_mail_date(xml)
+        xml.send(:"expected-mailing-date", "2017-11-30")
       end
 
       def add_destination(xml)

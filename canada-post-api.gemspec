@@ -27,6 +27,6 @@ Gem::Specification.new do |spec|
 
   # FOR TESTING ONLY
   spec.add_development_dependency "rspec", "~> 3.4"
-  spec.add_development_dependency "webmock", "~> 1.22"
+  spec.add_development_dependency "webmock", "~> 3.1"
   spec.add_development_dependency "vcr", "~> 3.0"
 end
