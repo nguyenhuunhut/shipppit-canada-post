@@ -23,10 +23,10 @@ module CanadaPost
           end
         else
           error_message =
-            if response[:messages]
-              response[:messages][:message][:description]
+            if response.parsed_response
+              response.parsed_response["messages"]["message"]["description"]
             else
-              'api_response.response'
+              "The Postal Code is invalid."
             end
           raise RateError, error_message
         end
