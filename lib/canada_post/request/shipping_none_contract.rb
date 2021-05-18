@@ -2,7 +2,7 @@ module CanadaPost
   module Request
     class ShippingNoneContract < Base
 
-      attr_accessor :options, :sender, :destination, :package, :notification, :preferences, :settlement_info, :group_id, :mailing_date, :transmit_shipment
+      attr_accessor :options, :sender, :destination, :package, :notification, :preferences, :group_id
 
       def initialize(credentials, options = {})
         super
@@ -23,11 +23,9 @@ module CanadaPost
           @package = options[:package]
           @notification = options[:notification]
           @preferences = options[:preferences]
-          # @settlement_info = options[:settlement_info]
           @group_id = options[:group_id]
           # @transmit_shipment = options[:transmit_shipment]
           @mailing_date = options[:mailing_date]
-          # @contract_id = options[:contract_id]
           @service_code = options[:service_code]
         end
 
@@ -142,8 +140,6 @@ module CanadaPost
             if @mobo.present? && @mobo[:customer_number].present?
               xml.send(:'paid-by-customer', @mobo_customer)
             end
-            # xml.send(:'contract-id', @contract_id)
-            # xml.send(:'intended-method-of-payment', @options[:method_of_payment] || 'Account')
           }
         end
 
