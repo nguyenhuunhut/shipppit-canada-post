@@ -8,6 +8,10 @@ module CanadaPost
       Request::Shipping.new(@credentials)
     end
 
+    def shipping_none_contract
+      Request::ShippingNonContract.new(@credentials)
+    end
+
     def manifest
       Request::Manifest.new(@credentials)
     end

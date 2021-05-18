@@ -124,7 +124,7 @@ sender = {
   address_details: {
     address: '123 street',
     phone: '343434',
-    state: 'QC'
+    state: 'QC',
     zip: 'M5X1B8',
     city: 'Gatineau',
     country: 'CA'
@@ -135,7 +135,7 @@ destination = {
   company: 'receiver company',
   address_details: {
     address: '4394 Rue Saint-Denis',
-    state: 'QC'
+    state: 'QC',
     zip: 'H2J2L1',
     city: 'Montréal',
     country: 'CA'
@@ -147,7 +147,7 @@ package = {
  mailing_tube: false,
  dimensions: {
    length: 2,
-   width: 2
+   width: 2,
    height: 2
  }
 }
@@ -166,7 +166,7 @@ settlement_info = {
   contract_id: 2514533 // 2514533 for sendbox mode
 }
 
-canada_post_service.create(
+canada_post_service.shipping.create(
   sender: sender,
   destination: destination,
   package: package,
