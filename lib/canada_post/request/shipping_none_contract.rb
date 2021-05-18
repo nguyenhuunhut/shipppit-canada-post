@@ -143,7 +143,7 @@ module CanadaPost
               xml.send(:'paid-by-customer', @mobo_customer)
             end
             # xml.send(:'contract-id', @contract_id)
-            xml.send(:'intended-method-of-payment', @options[:method_of_payment] || 'Account')
+            # xml.send(:'intended-method-of-payment', @options[:method_of_payment] || 'Account')
           }
         end
 
