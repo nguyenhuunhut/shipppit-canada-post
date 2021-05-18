@@ -77,7 +77,7 @@ module CanadaPost
         end
 
         def build_xml
-          build :"shipment" do |xml|
+          build :"non-contract-shipment" do |xml|
             add_shipment_params(xml)
           end
         end
