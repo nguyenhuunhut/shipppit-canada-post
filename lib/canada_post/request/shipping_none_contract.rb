@@ -25,7 +25,7 @@ module CanadaPost
           @preferences = options[:preferences]
           # @settlement_info = options[:settlement_info]
           @group_id = options[:group_id]
-          @transmit_shipment = options[:transmit_shipment]
+          # @transmit_shipment = options[:transmit_shipment]
           @mailing_date = options[:mailing_date]
           # @contract_id = options[:contract_id]
           @service_code = options[:service_code]
@@ -69,11 +69,11 @@ module CanadaPost
         end
 
         def request_content_type
-          'shipment'
+          'ncshipment'
         end
 
         def api_version
-          'v8'
+          'v4'
         end
 
         def build_xml
@@ -86,9 +86,9 @@ module CanadaPost
           if @group_id.present?
             xml.send(:'group-id', @group_id)
           end
-          if @transmit_shipment.present?
-            xml.send(:'transmit-shipment', @transmit_shipment)
-          end
+          # if @transmit_shipment.present?
+          #   xml.send(:'transmit-shipment', @transmit_shipment)
+          # end
           if @mailing_date.present?
             xml.send(:'expected-mailing-date', @mailing_date)
           end
@@ -138,13 +138,13 @@ module CanadaPost
             xml.send(:'show-insured-value', @preferences[:show_insured_value])
           }
 
-          # xml.send(:'settlement-info') {
-          #   if @mobo.present? && @mobo[:customer_number].present?
-          #     xml.send(:'paid-by-customer', @mobo_customer)
-          #   end
-          #   xml.send(:'contract-id', @contract_id)
-          #   xml.send(:'intended-method-of-payment', @options[:method_of_payment] || 'Account')
-          # }
+          xml.send(:'settlement-info') {
+            if @mobo.present? && @mobo[:customer_number].present?
+              xml.send(:'paid-by-customer', @mobo_customer)
+            end
+            # xml.send(:'contract-id', @contract_id)
+            xml.send(:'intended-method-of-payment', @options[:method_of_payment] || 'Account')
+          }
         end
 
         def add_sender(xml, return_spec: false)
