@@ -96,7 +96,7 @@ module CanadaPost
             xml.send(:'shipping-point-id', @options[:shipping_point_id])
           else
             rsp = @sender[:address_details][:postal_code].gsub(' ', '')
-            xml.send(:'cpc-pickup-indicator', true)
+            # xml.send(:'cpc-pickup-indicator', true)
             xml.send(:'requested-shipping-point', rsp)
           end
           xml.send(:'delivery-spec') {
