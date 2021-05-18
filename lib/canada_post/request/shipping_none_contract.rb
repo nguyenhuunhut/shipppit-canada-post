@@ -152,7 +152,7 @@ module CanadaPost
           xml.send(:'company', @sender[:company])
           xml.send(:'contact-phone', @sender[:phone]) unless return_spec
           xml.send(:'address-details') {
-            add_address(xml, @sender[:address_details], include_country: !return_spec)
+            add_address(xml, @sender[:address_details], include_country: return_spec)
           }
         end
 
