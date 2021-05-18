@@ -121,9 +121,9 @@ module CanadaPost
           }
 
           add_package(xml)
-          xml.send(:'print-preferences') {
-            xml.send(:'output-format', @options.dig(:print_preferences, :output_format) || '8.5x11')
-          }
+          # xml.send(:'print-preferences') {
+          #   xml.send(:'output-format', @options.dig(:print_preferences, :output_format) || '8.5x11')
+          # }
 
           xml.notification {
             xml.send(:'email', @notification[:email])
