@@ -1,6 +1,6 @@
 module CanadaPost
   module Request
-    class ShippingNonContract < Base
+    class ShippingNoneContract < Base
 
       attr_accessor :options, :sender, :destination, :package, :notification, :preferences, :settlement_info, :group_id, :mailing_date, :transmit_shipment
 
