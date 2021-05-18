@@ -65,7 +65,7 @@ module CanadaPost
         end
 
         def base_url
-          "/rs/#{@credentials.customer_number}/#{@mobo_customer}"
+          "/rs/#{@credentials.customer_number}"
         end
 
         def request_content_type
