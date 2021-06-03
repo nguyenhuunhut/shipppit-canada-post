@@ -33,11 +33,11 @@ module CanadaPost
       end
 
       def get_shipment(shipping_id)
-        get_request shipping_url + "/#{shipping_id}"
+        get_request shipping_get_url + "/#{shipping_id}"
       end
 
       def get_price(shipping_id)
-        get_request shipping_url + "/#{shipping_id}/price"
+        get_request shipping_get_url + "/#{shipping_id}/price"
       end
 
       def get_label(label_url)
@@ -62,12 +62,20 @@ module CanadaPost
           "/#{request_content_type}"
         end
 
+        def shipping_get_url
+          "/#{request_get_type}"
+        end
+
         def base_url
           "/rs/#{@credentials.customer_number}"
         end
 
         def request_content_type
           'ncshipment'
+        end
+
+        def request_get_type
+          'shipment'
         end
 
         def api_version
